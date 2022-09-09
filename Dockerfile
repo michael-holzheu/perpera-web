@@ -4,11 +4,10 @@
 # Run:     docker run -d -p 3000:3000 perpera-web
 # Web-URL: http://localhost:3000
 
-FROM ubuntu
+FROM alpine:3.14
 WORKDIR /app
 COPY . .
-RUN apt-get update
-RUN apt-get install -y npm
+RUN apk add npm
 RUN npm install
 CMD npm start
 EXPOSE 3000
